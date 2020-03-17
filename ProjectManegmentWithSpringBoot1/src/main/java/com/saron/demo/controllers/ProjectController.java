@@ -36,7 +36,9 @@ public class ProjectController {
 		
 		proRepo.save(project);
 		
-		return "redirect./new";//we use redirect to prevent duplicate submissions
+		//we use redirect to prevent duplicate submissions
+		
+		return "redirect:/projects/new"; //it will take us back to the form
 	
 	}
 

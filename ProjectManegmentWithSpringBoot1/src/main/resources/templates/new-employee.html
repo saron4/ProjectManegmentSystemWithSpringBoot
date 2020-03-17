@@ -17,19 +17,12 @@
 	
 	<div class="container">
 			
-		<form action="/projects/save"  th:object="${project}" method="POST">
+		<form action="/employees/save"  th:object="${employee}" method="POST">
 			
 			
-				<input type="text" placeholder="Project Name" th:field="${project.name}">
-						
-				<select th:field="${project.stage}">
-				    <option th:value="NOTSTARTED" >Not Started</option>
-				    <option th:value="INPROGRESS" >In Progress</option>
-				    <option th:value="COMPLETED" >Completed</option>
-				</select>
-			
-				<textarea type="text" placeholder="Enter Project Description" th:field="${project.discription}" > </textarea>
-						
+				<input type="text" placeholder="First Name" th:field="${employee.firstName}">
+				<input type="text" placeholder="Last Name" th:field="${employee.lastName}">
+				<input type="text" placeholder="Email Adress" th:field="${employee.email}">
 			
 
 			<button type="submit">Create Project</button>
