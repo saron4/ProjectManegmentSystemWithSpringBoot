@@ -1,5 +1,9 @@
 package com.saron.demo.controllers;
 
+
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +21,16 @@ import com.saron.demo.entities.Employee;
 		@Autowired
 		EmployeeRepo empRepo;
 		
+		@GetMapping
+		public String displayEmployees(Model model) {
+			List<Employee> employees = empRepo.findAll();
+			model.addAttribute("employees" , employees);
+			
+			return "employees/list-employees";
+			
+		}
+		
+		
 		@GetMapping("/new")
 		public String displayEmployeeForm(Model model) {
 			
@@ -24,7 +38,7 @@ import com.saron.demo.entities.Employee;
 			
 			model.addAttribute("employee", anEmployee);
 			
-			return "new-employee";
+			return "employees/new-employee";
 			
 		}
 		
@@ -36,4 +50,8 @@ import com.saron.demo.entities.Employee;
 			return "redirect:/employees/new"; 
 			
 		}
+		
+		
+		
+		
 }

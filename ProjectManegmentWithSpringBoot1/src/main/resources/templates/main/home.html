@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace = "layout :: header"></head>
+
+<body>
+
+<nav th:replace = "layout :: navbar"></nav>
+
+	<div>
+		<h4> Current Projects</h4>
+		<table>
+			<thead>
+				<tr>
+					<th>Project Name</th>
+					<th>Project Stage</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="aProject : ${projectList}"><!-- projects is a java object that consists a list of projects -->
+				
+					<td th:text = "${aProject.name}"/><!-- aProject is a temporary variable -->
+					<td th:text = "${aProject.stage}"/>
+					<td th:text = "${aProject.discription}"/>
+					
+				</tr>
+			</tbody>
+			
+		</table>
+	
+	</div>
+	
+	<div>
+		<h4> Current Employees</h4>
+		<table>
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="anEmployee : ${employeeList}"><!-- projects is a java object that consists a list of projects -->
+				
+					<td th:text = "${anEmployee.firstName}"/><!-- aProject is a temporary variable -->
+					<td th:text = "${anEmployee.lastName}"/>
+					<td th:text = "${anEmployee.email}"/>
+					
+					
+				</tr>
+			</tbody>
+			
+		</table>
+	
+	</div>
+	
+	
+</body>
+</html>
